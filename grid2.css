@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://cdn.imgchest.com/files/6yxkcg93k7w.png);
+    background-repeat: no-repeat;
+    max-width: 1536px;
+    min-height: 1583px;
+    font-size: 2rem;
+    opacity: .5;
+    color: blue;
+}
+
+.container > * {
+    border: 2px dashed blue;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: minmax(100px, auto) minmax(513px, auto) minmax(383px, auto) minmax(574px, auto);
+    grid-template-columns: minmax(20px,200px) minmax(20px, 235px) minmax(20px, 661px) minmax(20px, 440px);
+    grid-template-areas: 
+    "one five five five"
+    "two two  two  two"
+    "three three three three"
+    "four four six seven";
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+        "six"
+        "seven";
+    }
+}
+
+.box1 {
+    grid-area: one;
+}
+
+.box2 {
+    grid-area: two;
+}
+
+.box3 {
+    grid-area: three;
+}
+
+.box4 {
+    grid-area: four;
+}
+
+.box5 {
+    grid-area: five;
+}
+
+.box6 {
+    grid-area: six;
+}
+
+.box7 {
+    grid-area: seven;
+}
+
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0px 0px 3px 21px;
+    margin: 0;
+    align-items: end;
+    gap: 10px;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+.main-menu > * {
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: normal;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.main-menu > .box1 {
+    flex-basis: 122px;
+    margin-bottom: 11px;
+}
+
+.main-menu > .box2 {
+    flex-basis: 783px;
+    margin-bottom: 11px;
+}
+
+.main-menu > .box3 {
+    flex-basis: 132px;
+    color: #a3daa5;
+    border: 1px solid #a3daa5;
+}
+
+.main-menu > .box4 {
+    flex-basis: 103px;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.main-menu > .button , .main-menu > .button
+{
+    text-align: center;
+    border-radius: 100px;
+    padding: 12px 0 8px;
+}
