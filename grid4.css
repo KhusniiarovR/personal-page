@@ -4,14 +4,19 @@
 }
 
 body {
-    background-image: url(https://cdn.imgchest.com/files/6yxkcg93k7w.png);
+    /* background-image: url(https://cdn.imgchest.com/files/6yxkcg93k7w.png); */
+    background-image: none;
+    /* opacity: .5; */
+    opacity: 1;
     background-repeat: no-repeat;
     max-width: 1536px;
     min-height: 1583px;
     font-size: 2rem;
-    opacity: .5;
     color: blue;
-    font-family: Arial, sans-serif;
+}
+
+body > img:nth-of-type(1) {
+    display: none;
 }
 
 .container > * {
@@ -21,12 +26,12 @@ body {
 .container {
     display: grid;
     grid-template-rows: minmax(100px, auto) minmax(513px, auto) minmax(383px, auto) minmax(574px, auto);
-    grid-template-columns: minmax(20px,200px) minmax(20px, 235px) minmax(20px, 661px) minmax(20px, 440px);
+    grid-template-columns: minmax(20px,300px) minmax(20px, 235px) minmax(20px, 661px) minmax(20px, 440px);
     grid-template-areas: 
-    "one five five five"
-    "two two  two  two"
-    "three three three three"
-    "four four six seven";
+    "one  two  two  two"
+    "five two  two  two"
+    "four three three three"
+    "four six six seven";
 }
 
 @media (max-width: 500px) {
@@ -34,10 +39,10 @@ body {
         grid-template-columns: 100%;
         grid-template-areas:
         "one"
+        "five"
         "two"
         "three"
         "four"
-        "five"
         "six"
         "seven";
     }
@@ -50,22 +55,21 @@ body {
 .container > .box1 {
     grid-area: one;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .container > .box1 > img {
-    width: 50px;
+    width: 80px;
 }
 
-.container > .box2 {
+.box2 {
     grid-area: two;
     display: flex;
     flex-direction: column;
 }
 
-.container > .box2 > *
+.box2 > *
 {
     width: 100%;
 }
@@ -109,7 +113,7 @@ body {
     flex-grow: 1; 
     padding: 14px 20px;
     font-size: 16px;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 5px;
 }
 
@@ -194,15 +198,12 @@ body {
     background-position: 0 -90px;
 }
 
-.container > .box3 {
+.box3 {
     grid-area: three;
 }
 
 .container > .box4 {
     grid-area: four;
-}
-
-.box4 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -210,9 +211,10 @@ body {
     color: black;
     padding-right: 39px;
     padding-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.box4 h2 {
+.container > .box4 h2 {
     font-size: 20px;
     color: rgb(42, 42, 42);
     text-align: center;
@@ -221,7 +223,7 @@ body {
     margin: 0 -7px 10px 0;
 }
 
-.box4 .banner-ad {
+.container > .box4 .banner-ad {
     margin-top: 8px;
     margin-bottom: 10px;
 }
@@ -246,27 +248,26 @@ body {
     font-weight: 700;
 }
 
-.container > .box5 {
+.box5 {
     grid-area: five;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.container > .box6 {
+.box6 {
     grid-area: six;
 }
 
-.container > .box7 {
+.box7 {
     grid-area: seven;
 }
 
 .main-menu {
     display: flex;
     list-style-type: none;
-    padding: 0px 0px 3px 21px;
-    margin: 0;
-    align-items: end;
-    gap: 10px;
+    padding: 0;
     max-width: 100%;
     min-height: 100%;
+    flex-direction: column;
 }
 
 .main-menu > * {
@@ -274,37 +275,12 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     letter-spacing: normal;
-    font-weight: 500;
+    font-weight: 300;
     font-style: normal;
-}
-
-.main-menu > .box1 {
-    flex-basis: 122px;
-    margin-bottom: 11px;
-}
-
-.main-menu > .box2 {
-    flex-basis: 783px;
-    margin-bottom: 11px;
-}
-
-.main-menu > .box3 {
-    flex-basis: 132px;
-    color: #a3daa5;
-    border: 1px solid #a3daa5;
-}
-
-.main-menu > .box4 {
-    flex-basis: 103px;
-    color: white;
-    border: 1px solid white;
-}
-
-.main-menu > .button , .main-menu > .button
-{
+    padding: 20px;
+    text-transform: uppercase;
     text-align: center;
-    border-radius: 100px;
-    padding: 12px 0 8px;
+    border-bottom: 1px solid white;
 }
 
 .container > .background
@@ -314,5 +290,4 @@ body {
     position: absolute;
     z-index: -1;
     height: 614px;
-    display: none;
 }
