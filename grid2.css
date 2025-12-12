@@ -29,23 +29,8 @@ body {
     "four four six seven";
 }
 
-@media (max-width: 500px) {
-    .container {
-        grid-template-columns: 100%;
-        grid-template-areas:
-        "one"
-        "two"
-        "three"
-        "four"
-        "five"
-        "six"
-        "seven";
-    }
 
-    .background {
-        display: none;
-    }
-}
+/*--- BOX 1 ---*/
 
 .container > .box1 {
     grid-area: one;
@@ -58,6 +43,8 @@ body {
 .container > .box1 > img {
     width: 50px;
 }
+
+/*--- BOX 2 ---*/
 
 .container > .box2 {
     grid-area: two;
@@ -194,15 +181,95 @@ body {
     background-position: 0 -90px;
 }
 
+/*--- BOX 3 ---*/
+
 .container > .box3 {
     grid-area: three;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
 }
+
+.container > .box3 .sub-box-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 28px;
+    color: black;
+    margin-bottom: 16px;
+}
+
+.container > .box3 > .box3-support {
+    width: 82%;
+    padding-left: 4px;
+    padding-bottom: 5px;
+}
+
+.container > .box3 > .box3-support > p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: inline;
+    text-decoration: underline dashed;
+}
+
+.category-card {
+    min-height: 102px;
+    padding: 12px 0 0 24px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    position: relative;
+}
+
+/* 
+every card is different padding,
+how I'm supposed to change it with reasonable amount of effort,
+like every single detail of this website.
+Everything is inside 20+ divs that everything uses padding and margin that is over 50px.
+None of them can be centered by flexbox without margin over 50px or separator element.
+*/
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+}
+
+.category-card h4 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.category-card .salary-range {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    height: 21px;
+}
+
+.category-card .vacancy-count {
+    font-size: 15px;
+    color: #999;
+}
+
+.card-red::before { background-color: #ffb6c1; } 
+.card-light-red::before { background-color: #fce4ec; } 
+.card-pink::before { background-color: #ffb6c1; } 
+.card-orange::before { background-color: #ffe0b2; } 
+.card-purple::before { background-color: #e1bee7; }
+.card-brown::before { background-color: #d7ccc8; }
+.card-yellow::before { background-color: #fff9c4; }
+.card-green::before { background-color: #c8e6c9; }
+
+/*--- BOX 4 ---*/
 
 .container > .box4 {
     grid-area: four;
-}
-
-.box4 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -221,7 +288,7 @@ body {
     margin: 0 -7px 10px 0;
 }
 
-.box4 .banner-ad {
+.container > .box4 .banner-ad {
     margin-top: 8px;
     margin-bottom: 10px;
 }
@@ -246,16 +313,10 @@ body {
     font-weight: 700;
 }
 
+/*--- BOX 5 ---*/
+
 .container > .box5 {
     grid-area: five;
-}
-
-.container > .box6 {
-    grid-area: six;
-}
-
-.container > .box7 {
-    grid-area: seven;
 }
 
 .main-menu {
@@ -307,6 +368,29 @@ body {
     padding: 12px 0 8px;
 }
 
+/*--- BOX 6 ---*/
+
+.container > .box6 {
+    grid-area: six;
+}
+
+/*--- BOX 7 ---*/
+
+.container > .box7 {
+    grid-area: seven;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px 0 6px 2px;
+}
+
+.container > .box7 > * {
+    width: 300px;
+    height: 250px;
+}
+
+/*--- OTHER ---*/
+
 .container > .background
 {
     width: 100%;
@@ -314,5 +398,42 @@ body {
     position: absolute;
     z-index: -1;
     height: 614px;
-    display: none;
+    /* display: none; */
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+        "six"
+        "seven";
+    }
+
+    .background {
+        display: none;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-areas: 
+        "one five five five"
+        "two two  two  two"
+        "three three three three"
+        "four four six six";
+    }
+
+    .container > .box7 {
+        display: none;
+    }
+
+    .container > .box3 .sub-box-3 {
+        grid-template-columns: 1fr 1fr;
+    }
 }
