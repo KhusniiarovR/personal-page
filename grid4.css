@@ -25,8 +25,8 @@ body > img:nth-of-type(1) {
 
 .container {
     display: grid;
-    grid-template-rows: minmax(100px, auto) minmax(513px, auto) minmax(383px, auto) minmax(574px, auto);
-    grid-template-columns: minmax(20px,300px) minmax(20px, 235px) minmax(20px, 661px) minmax(20px, 440px);
+    grid-template-rows: minmax(100px, auto) minmax(513px, auto) minmax(310px, auto) minmax(370px, auto);
+    grid-template-columns: minmax(20px,200px) minmax(20px, 235px) minmax(20px, 661px) minmax(20px, 440px);
     grid-template-areas: 
     "one  two  two  two"
     "five two  two  two"
@@ -55,7 +55,7 @@ body > img:nth-of-type(1) {
     flex-direction: column;
 }
 
-.box2 > *
+.container > .box2 > *
 {
     width: 100%;
 }
@@ -133,7 +133,7 @@ body > img:nth-of-type(1) {
     flex-basis: 18%;
     display: flex;
     justify-content: space-around;
-    gap: 240px;
+    gap: 20px;
     width: 100%;
     color: white;
     font-family: Arial, sans-serif;
@@ -163,6 +163,7 @@ body > img:nth-of-type(1) {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
 }
 
 .download > * {
@@ -189,8 +190,8 @@ body > img:nth-of-type(1) {
 .container > .box3 {
     grid-area: three;
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    justify-content: end;
     align-items: center;
 }
 
@@ -219,10 +220,15 @@ body > img:nth-of-type(1) {
     min-height: 102px;
     padding: 12px 0 0 24px;
     border-radius: 4px;
-    border: 1px solid #333;
+    border: 1px solid black;
     position: relative;
+    transition: transform 0.35s ease-in-out;
 }
 
+.category-card:hover {
+    transform: scale(1.07);
+    border-width: 2px;
+}
 
 .category-card::before {
     content: '';
@@ -269,12 +275,8 @@ body > img:nth-of-type(1) {
     grid-area: four;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding: 16px;
+    padding: 10px;
     color: black;
-    padding-right: 39px;
-    padding-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .container > .box4 h2 {
@@ -283,12 +285,10 @@ body > img:nth-of-type(1) {
     text-align: center;
     width: 100%;
     font-weight: 300;
-    margin: 0 -7px 10px 0;
 }
 
 .container > .box4 .banner-ad {
-    margin-top: 8px;
-    margin-bottom: 10px;
+    display: none;
 }
 
 .company-list {
@@ -300,10 +300,11 @@ body > img:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 12px;
     font-size: 14px;
-    color: #333;
-    gap: 95px;
+    gap: 5px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed black;
 }
 
 .company-list .vacancy-count {
@@ -342,23 +343,82 @@ body > img:nth-of-type(1) {
 
 /*--- BOX 6 ---*/
 
+
 .container > .box6 {
     grid-area: six;
+    color: black;
+    padding: 15px 25px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.container > .box6 h2 {
+    font-size: 21px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.job-list-container { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px 14px;
+    margin-left: 1px;
+    
+}
+
+.job-item {
+    border: 1px solid black;
+    border-radius: 40px;
+    transition: transform 0.35s ease-in-out;
+}
+
+.job-item:hover {
+    transform: scale(1.03);
+    background-color: #dcdbdb;
+    border-width: 2px;
+}
+
+.job-item h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.job-item .salary-range {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.job-item .company-info {
+    font-size: 12px;
+    color: #666;
+}
+
+.job-item:last-child {
+    margin-top: -18px;
+}
+
+.job-list-container .job-item:nth-child(n + 9) {
+    display: none;
 }
 
 /*--- BOX 7 ---*/
 
 .container > .box7 {
     grid-area: seven;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 14px 0 6px 2px;
 }
 
 .container > .box7 > * {
-    width: 300px;
-    height: 250px;
+    width: 100%;
+}
+
+.container > .box7 > img:nth-child(1) {
+    display: none;
 }
 
 /*--- OTHER ---*/
@@ -372,26 +432,7 @@ body > img:nth-of-type(1) {
     height: 614px;
 }
 
-@media (max-width: 500px) {
-    .container {
-        grid-template-columns: 100%;
-        grid-template-areas:
-        "one"
-        "two"
-        "three"
-        "four"
-        "five"
-        "six"
-        "seven";
-    }
-
-    .background {
-        display: none;
-    }
-
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .container {
         grid-template-areas: 
         "one five five five"
@@ -406,5 +447,50 @@ body > img:nth-of-type(1) {
 
     .container > .box3 .sub-box-3 {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .banner-ad {
+        display: none;
+    }
+
+    .container > .background {
+        height: 755px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "two"
+        "three"
+        "four"
+        "six";
+        grid-template-rows: minmax(410px, auto) minmax(310px, auto) minmax(510px, auto);
+    }
+
+    .container > .box5, .container > .box7 {
+        display: none;
+    }
+
+    .container > .background {
+        height: 412px;
+    }
+
+    .search-form-container .icon-button {
+        display: none;
+    }
+
+    .sub-hero-box-1 {
+        gap: 15px;
+        margin: 0;
+    }
+
+    .container > .box1 {
+        position: fixed;
+        top: 10px; left: 15px;
+        width: 20px;
+        border: none;
+        opacity: .5;
     }
 }

@@ -9,7 +9,6 @@ body {
     max-width: 1536px;
     min-height: 1583px;
     font-size: 2rem;
-    opacity: .5;
     color: blue;
     font-family: Arial, sans-serif;
 }
@@ -220,14 +219,6 @@ body {
     position: relative;
 }
 
-/* 
-every card is different padding,
-how I'm supposed to change it with reasonable amount of effort,
-like every single detail of this website.
-Everything is inside 20+ divs that everything uses padding and margin that is over 50px.
-None of them can be centered by flexbox without margin over 50px or separator element.
-*/
-
 .category-card::before {
     content: '';
     position: absolute;
@@ -372,6 +363,44 @@ None of them can be centered by flexbox without margin over 50px or separator el
 
 .container > .box6 {
     grid-area: six;
+    color: black;
+    padding: 15px 25px;
+}
+
+.container > .box6 h2 {
+    font-size: 21px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.job-list-container { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px 34px;
+    margin-left: 1px;
+}
+
+.job-item h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.job-item .salary-range {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.job-item .company-info {
+    font-size: 12px;
+    color: #666;
+}
+
+.job-item:last-child {
+    margin-top: -18px;
 }
 
 /*--- BOX 7 ---*/
@@ -398,29 +427,9 @@ None of them can be centered by flexbox without margin over 50px or separator el
     position: absolute;
     z-index: -1;
     height: 614px;
-    /* display: none; */
 }
 
-@media (max-width: 500px) {
-    .container {
-        grid-template-columns: 100%;
-        grid-template-areas:
-        "one"
-        "two"
-        "three"
-        "four"
-        "five"
-        "six"
-        "seven";
-    }
-
-    .background {
-        display: none;
-    }
-
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .container {
         grid-template-areas: 
         "one five five five"
@@ -435,5 +444,65 @@ None of them can be centered by flexbox without margin over 50px or separator el
 
     .container > .box3 .sub-box-3 {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .banner-ad {
+        display: none;
+    }
+
+    .job-list-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 3px;
+    }
+
+    .job-list-container .job-item:nth-child(n + 6) {
+        display: none;
+    }
+
+    .hero-box-2 {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "two"
+        "three"
+        "four"
+        "six";
+        grid-template-rows: minmax(410px, auto) minmax(310px, auto) minmax(390px, auto);
+    }
+
+    .container > .box5, .container > .box7 {
+        display: none;
+    }
+
+    .container > .background {
+        height: 412px;
+    }
+
+    .search-form-container .icon-button {
+        display: none;
+    }
+
+    .sub-hero-box-1 {
+        gap: 15px;
+        margin: 0;
+    }
+
+    .container > .box1 {
+        position: fixed;
+        top: 10px;
+        left: 30px;
+        width: 20px;
+        border: none;
+        opacity: .5;
+    }
+
+    .container > .box4 {
+        align-items:normal;
     }
 }
