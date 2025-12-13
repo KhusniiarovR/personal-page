@@ -9,6 +9,7 @@ body {
     max-width: 1536px;
     min-height: 1583px;
     font-size: 2rem;
+    opacity: .5;
     color: blue;
     font-family: Arial, sans-serif;
 }
